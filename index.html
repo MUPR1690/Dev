@@ -1,53 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Map Viewer App</title>
   <meta charset="utf-8" />
+  <title>Multi-Map Web App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <!-- Leaflet JavaScript -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  
   <style>
-    body, html { margin: 0; padding: 0; height: 100%; }
-    #map { height: 100vh; width: 100%; }
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    #map {
+      height: 100vh;
+    }
   </style>
 </head>
 <body>
 
-<h2 style="text-align:center;">🌍 Map Viewer (Street, Satellite, Terrain)</h2>
 <div id="map"></div>
 
-<script>
-  // Initialize map
-  var map = L.map('map').setView([28.6139, 77.2090], 5); // Default: New Delhi
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-  // Base Layers
-  var street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '© OpenStreetMap'
+<script>
+  // Map initialization
+  var map = L.map('map').setView([28.6139, 77.2090], 5); // Centered on India
+
+  // Define different basemaps
+  var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
 
   var satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-    maxZoom: 19,
-    attribution: '© Esri & contributors'
+      attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, etc.'
   });
 
-  var topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-    maxZoom: 17,
-    attribution: '© OpenTopoMap'
+  var terrain = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+      maxZoom: 17,
+      attribution: 'Map data: &copy; OpenStreetMap contributors, SRTM | Map style: &copy; OpenTopoMap (CC-BY-SA)'
   });
 
-  // Layer control
+  // BaseMaps object for layer control
   var baseMaps = {
-    "🛣️ Street Map": street,
-    "🛰️ Satellite Map": satellite,
-    "🏔️ Topographic Map": topo
+      "OpenStreetMap": osm,
+      "Satellite": satellite,
+      "Terrain": terrain
   };
 
+  // Add layer control to map
   L.control.layers(baseMaps).addTo(map);
 </script>
 
 </body>
 </html>
+
