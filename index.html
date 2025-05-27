@@ -1,61 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Multi-Map Web App</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-    }
-    #map {
-      height: 100vh;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>India State Shapefiles Download</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        ul {
+            max-width: 600px;
+            margin: auto;
+            padding: 0;
+            list-style: none;
+        }
+        li {
+            background: #fff;
+            margin: 8px 0;
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        a {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: bold;
+        }
+        a:hover {
+            color: #e74c3c;
+        }
+    </style>
 </head>
 <body>
-
-<div id="map"></div>
-
-<!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-<script>
-  // Map initialization
-  var map = L.map('map').setView([28.6139, 77.2090], 5); // Centered on India
-
-  // Define different basemaps
-  var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; OpenStreetMap contributors'
-  }).addTo(map);
-
-  var satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-      attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, etc.'
-  });
-
-  var terrain = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-      maxZoom: 17,
-      attribution: 'Map data: &copy; OpenStreetMap contributors, SRTM | Map style: &copy; OpenTopoMap (CC-BY-SA)'
-  });
-
-  // BaseMaps object for layer control
-  var baseMaps = {
-      "OpenStreetMap": osm,
-      "Satellite": satellite,
-      "Terrain": terrain
-  };
-
-  // Add layer control to map
-  L.control.layers(baseMaps).addTo(map);
-</script>
-
+    <h1>Download Shapefiles of Indian States</h1>
+    <ul>
+        <li><a href="shapefiles/andhra_pradesh.zip" download>Andhra Pradesh</a></li>
+        <li><a href="shapefiles/arunachal_pradesh.zip" download>Arunachal Pradesh</a></li>
+        <li><a href="shapefiles/assam.zip" download>Assam</a></li>
+        <li><a href="shapefiles/bihar.zip" download>Bihar</a></li>
+        <li><a href="shapefiles/chhattisgarh.zip" download>Chhattisgarh</a></li>
+        <li><a href="shapefiles/goa.zip" download>Goa</a></li>
+        <li><a href="shapefiles/gujarat.zip" download>Gujarat</a></li>
+        <li><a href="shapefiles/haryana.zip" download>Haryana</a></li>
+        <li><a href="shapefiles/himachal_pradesh.zip" download>Himachal Pradesh</a></li>
+        <li><a href="shapefiles/jharkhand.zip" download>Jharkhand</a></li>
+        <li><a href="shapefiles/karnataka.zip" download>Karnataka</a></li>
+        <li><a href="shapefiles/kerala.zip" download>Kerala</a></li>
+        <li><a href="shapefiles/madhya_pradesh.zip" download>Madhya Pradesh</a></li>
+        <li><a href="shapefiles/maharashtra.zip" download>Maharashtra</a></li>
+        <li><a href="shapefiles/manipur.zip" download>Manipur</a></li>
+        <li><a href="shapefiles/meghalaya.zip" download>Meghalaya</a></li>
+        <li><a href="shapefiles/mizoram.zip" download>Mizoram</a></li>
+        <li><a href="shapefiles/nagaland.zip" download>Nagaland</a></li>
+        <li><a href="shapefiles/odisha.zip" download>Odisha</a></li>
+        <li><a href="shapefiles/punjab.zip" download>Punjab</a></li>
+        <li><a href="shapefiles/rajasthan.zip" download>Rajasthan</a></li>
+        <li><a href="shapefiles/sikkim.zip" download>Sikkim</a></li>
+        <li><a href="shapefiles/tamil_nadu.zip" download>Tamil Nadu</a></li>
+        <li><a href="shapefiles/telangana.zip" download>Telangana</a></li>
+        <li><a href="shapefiles/tripura.zip" download>Tripura</a></li>
+        <li><a href="shapefiles/uttar_pradesh.zip" download>Uttar Pradesh</a></li>
+        <li><a href="shapefiles/uttarakhand.zip" download>Uttarakhand</a></li>
+        <li><a href="shapefiles/west_bengal.zip" download>West Bengal</a></li>
+        <li><a href="shapefiles/delhi.zip" download>Delhi</a></li>
+        <li><a href="shapefiles/jammu_kashmir.zip" download>Jammu & Kashmir</a></li>
+        <li><a href="shapefiles/ladakh.zip" download>Ladakh</a></li>
+    </ul>
 </body>
 </html>
-
