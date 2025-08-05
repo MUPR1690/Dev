@@ -1,4 +1,5 @@
-#  variable "rg_name" {}
+ variable "rg_name" {}
+ variable "rg_location" {}
 
 resource "azurerm_resource_group" "resource_group" {
   for_each = {
